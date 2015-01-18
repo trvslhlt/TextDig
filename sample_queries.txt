@@ -1,0 +1,5 @@
+sample_queries.txt
+
+SELECT * FROM contacts WHERE First LIKE "ki";
+SELECT * FROM messages WHERE Text = "K";
+
