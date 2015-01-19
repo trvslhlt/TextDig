@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ChatBubbleView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>TextDig.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>88D92C561A6C69DE00B96D4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88FF84A01A6CC514000701EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88FF84AA1A6CC514000701EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

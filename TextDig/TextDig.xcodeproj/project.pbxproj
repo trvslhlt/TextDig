@@ -13,6 +13,20 @@
 		88D92C5E1A6C69DF00B96D4C /* TextDigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92C5D1A6C69DF00B96D4C /* TextDigTests.swift */; };
 		88D92C6A1A6C6A6700B96D4C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92C691A6C6A6700B96D4C /* ChatVC.swift */; };
 		88D92C6C1A6C6AC700B96D4C /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C6B1A6C6AC700B96D4C /* ChatVC.xib */; };
+		88FF848D1A6CB499000701EA /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF848B1A6CB499000701EA /* HomeVC.swift */; };
+		88FF848E1A6CB499000701EA /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FF848C1A6CB499000701EA /* HomeVC.xib */; };
+		88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84901A6CBBDF000701EA /* ChatCollectionViewDelegate.swift */; };
+		88FF84951A6CBD05000701EA /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84931A6CBD05000701EA /* ChatCell.swift */; };
+		88FF84961A6CBD05000701EA /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FF84941A6CBD05000701EA /* ChatCell.xib */; };
+		88FF84A61A6CC514000701EA /* ChatBubbleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FF84A51A6CC514000701EA /* ChatBubbleView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88FF84AC1A6CC514000701EA /* ChatBubbleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FF84A11A6CC514000701EA /* ChatBubbleView.framework */; };
+		88FF84B51A6CC514000701EA /* ChatBubbleViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84B41A6CC514000701EA /* ChatBubbleViewTests.swift */; };
+		88FF84B81A6CC514000701EA /* ChatBubbleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FF84A11A6CC514000701EA /* ChatBubbleView.framework */; };
+		88FF84B91A6CC514000701EA /* ChatBubbleView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 88FF84A11A6CC514000701EA /* ChatBubbleView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		88FF84C21A6CC577000701EA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C11A6CC577000701EA /* ChatBubbleView.swift */; };
+		88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */; };
+		88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */; };
+		88FF84C91A6CE094000701EA /* TBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C81A6CE094000701EA /* TBVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +37,42 @@
 			remoteGlobalIDString = 88D92C461A6C69DE00B96D4C;
 			remoteInfo = TextDig;
 		};
+		88FF84AD1A6CC514000701EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D92C3F1A6C69DE00B96D4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88FF84A01A6CC514000701EA;
+			remoteInfo = ChatBubbleView;
+		};
+		88FF84AF1A6CC514000701EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D92C3F1A6C69DE00B96D4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88D92C461A6C69DE00B96D4C;
+			remoteInfo = TextDig;
+		};
+		88FF84B61A6CC514000701EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 88D92C3F1A6C69DE00B96D4C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88FF84A01A6CC514000701EA;
+			remoteInfo = ChatBubbleView;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		88FF84BD1A6CC514000701EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				88FF84B91A6CC514000701EA /* ChatBubbleView.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		88D92C471A6C69DE00B96D4C /* TextDig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDig.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +85,21 @@
 		88D92C5D1A6C69DF00B96D4C /* TextDigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDigTests.swift; sourceTree = "<group>"; };
 		88D92C691A6C6A6700B96D4C /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatVC.swift; path = ViewControllers/ChatVC.swift; sourceTree = "<group>"; };
 		88D92C6B1A6C6AC700B96D4C /* ChatVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatVC.xib; path = ViewControllers/ChatVC.xib; sourceTree = "<group>"; };
+		88FF848B1A6CB499000701EA /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeVC.swift; path = ViewControllers/HomeVC.swift; sourceTree = "<group>"; };
+		88FF848C1A6CB499000701EA /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeVC.xib; path = ViewControllers/HomeVC.xib; sourceTree = "<group>"; };
+		88FF84901A6CBBDF000701EA /* ChatCollectionViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatCollectionViewDelegate.swift; path = Delegate/ChatCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		88FF84931A6CBD05000701EA /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatCell.swift; path = Views/ChatCell.swift; sourceTree = "<group>"; };
+		88FF84941A6CBD05000701EA /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatCell.xib; path = Views/ChatCell.xib; sourceTree = "<group>"; };
+		88FF84A11A6CC514000701EA /* ChatBubbleView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChatBubbleView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FF84A41A6CC514000701EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FF84A51A6CC514000701EA /* ChatBubbleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatBubbleView.h; sourceTree = "<group>"; };
+		88FF84AB1A6CC514000701EA /* ChatBubbleViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChatBubbleViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FF84B31A6CC514000701EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88FF84B41A6CC514000701EA /* ChatBubbleViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBubbleViewTests.swift; sourceTree = "<group>"; };
+		88FF84C11A6CC577000701EA /* ChatBubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
+		88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreGraphicsExtensions.swift; path = Extensions/CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
+		88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitExtensions.swift; path = Extensions/UIKitExtensions.swift; sourceTree = "<group>"; };
+		88FF84C81A6CE094000701EA /* TBVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TBVC.swift; path = ViewControllers/TBVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FF84B81A6CC514000701EA /* ChatBubbleView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +115,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FF849D1A6CC514000701EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FF84A81A6CC514000701EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FF84AC1A6CC514000701EA /* ChatBubbleView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +141,8 @@
 			children = (
 				88D92C491A6C69DE00B96D4C /* TextDig */,
 				88D92C5A1A6C69DE00B96D4C /* TextDigTests */,
+				88FF84A21A6CC514000701EA /* ChatBubbleView */,
+				88FF84B11A6CC514000701EA /* ChatBubbleViewTests */,
 				88D92C481A6C69DE00B96D4C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +152,8 @@
 			children = (
 				88D92C471A6C69DE00B96D4C /* TextDig.app */,
 				88D92C571A6C69DE00B96D4C /* TextDigTests.xctest */,
+				88FF84A11A6CC514000701EA /* ChatBubbleView.framework */,
+				88FF84AB1A6CC514000701EA /* ChatBubbleViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +161,9 @@
 		88D92C491A6C69DE00B96D4C /* TextDig */ = {
 			isa = PBXGroup;
 			children = (
+				88FF84C31A6CCF24000701EA /* Extensions */,
+				88FF84921A6CBC93000701EA /* Views */,
+				88FF848F1A6CBBAD000701EA /* Delegates */,
 				88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */,
 				88D92C681A6C6A1600B96D4C /* Models */,
 				88D92C671A6C69FD00B96D4C /* ViewControllers */,
@@ -115,6 +202,9 @@
 		88D92C671A6C69FD00B96D4C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				88FF84C81A6CE094000701EA /* TBVC.swift */,
+				88FF848B1A6CB499000701EA /* HomeVC.swift */,
+				88FF848C1A6CB499000701EA /* HomeVC.xib */,
 				88D92C691A6C6A6700B96D4C /* ChatVC.swift */,
 				88D92C6B1A6C6AC700B96D4C /* ChatVC.xib */,
 			);
@@ -128,7 +218,87 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		88FF848F1A6CBBAD000701EA /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84901A6CBBDF000701EA /* ChatCollectionViewDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		88FF84921A6CBC93000701EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				88FF849B1A6CC361000701EA /* Cells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		88FF849B1A6CC361000701EA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84931A6CBD05000701EA /* ChatCell.swift */,
+				88FF84941A6CBD05000701EA /* ChatCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		88FF84A21A6CC514000701EA /* ChatBubbleView */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84A51A6CC514000701EA /* ChatBubbleView.h */,
+				88FF84C11A6CC577000701EA /* ChatBubbleView.swift */,
+				88FF84A31A6CC514000701EA /* Supporting Files */,
+			);
+			path = ChatBubbleView;
+			sourceTree = "<group>";
+		};
+		88FF84A31A6CC514000701EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84A41A6CC514000701EA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88FF84B11A6CC514000701EA /* ChatBubbleViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84B41A6CC514000701EA /* ChatBubbleViewTests.swift */,
+				88FF84B21A6CC514000701EA /* Supporting Files */,
+			);
+			path = ChatBubbleViewTests;
+			sourceTree = "<group>";
+		};
+		88FF84B21A6CC514000701EA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84B31A6CC514000701EA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		88FF84C31A6CCF24000701EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */,
+				88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		88FF849E1A6CC514000701EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FF84A61A6CC514000701EA /* ChatBubbleView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		88D92C461A6C69DE00B96D4C /* TextDig */ = {
@@ -138,10 +308,12 @@
 				88D92C431A6C69DE00B96D4C /* Sources */,
 				88D92C441A6C69DE00B96D4C /* Frameworks */,
 				88D92C451A6C69DE00B96D4C /* Resources */,
+				88FF84BD1A6CC514000701EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				88FF84B71A6CC514000701EA /* PBXTargetDependency */,
 			);
 			name = TextDig;
 			productName = TextDig;
@@ -166,6 +338,43 @@
 			productReference = 88D92C571A6C69DE00B96D4C /* TextDigTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		88FF84A01A6CC514000701EA /* ChatBubbleView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FF84BA1A6CC514000701EA /* Build configuration list for PBXNativeTarget "ChatBubbleView" */;
+			buildPhases = (
+				88FF849C1A6CC514000701EA /* Sources */,
+				88FF849D1A6CC514000701EA /* Frameworks */,
+				88FF849E1A6CC514000701EA /* Headers */,
+				88FF849F1A6CC514000701EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatBubbleView;
+			productName = ChatBubbleView;
+			productReference = 88FF84A11A6CC514000701EA /* ChatBubbleView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		88FF84AA1A6CC514000701EA /* ChatBubbleViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FF84BE1A6CC514000701EA /* Build configuration list for PBXNativeTarget "ChatBubbleViewTests" */;
+			buildPhases = (
+				88FF84A71A6CC514000701EA /* Sources */,
+				88FF84A81A6CC514000701EA /* Frameworks */,
+				88FF84A91A6CC514000701EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				88FF84AE1A6CC514000701EA /* PBXTargetDependency */,
+				88FF84B01A6CC514000701EA /* PBXTargetDependency */,
+			);
+			name = ChatBubbleViewTests;
+			productName = ChatBubbleViewTests;
+			productReference = 88FF84AB1A6CC514000701EA /* ChatBubbleViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,6 +388,13 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					88D92C561A6C69DE00B96D4C = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 88D92C461A6C69DE00B96D4C;
+					};
+					88FF84A01A6CC514000701EA = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					88FF84AA1A6CC514000701EA = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = 88D92C461A6C69DE00B96D4C;
 					};
@@ -199,6 +415,8 @@
 			targets = (
 				88D92C461A6C69DE00B96D4C /* TextDig */,
 				88D92C561A6C69DE00B96D4C /* TextDigTests */,
+				88FF84A01A6CC514000701EA /* ChatBubbleView */,
+				88FF84AA1A6CC514000701EA /* ChatBubbleViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -209,12 +427,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */,
+				88FF848E1A6CB499000701EA /* HomeVC.xib in Resources */,
+				88FF84961A6CBD05000701EA /* ChatCell.xib in Resources */,
 				88D92C6C1A6C6AC700B96D4C /* ChatVC.xib in Resources */,
 				88D92C4F1A6C69DE00B96D4C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		88D92C551A6C69DE00B96D4C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FF849F1A6CC514000701EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FF84A91A6CC514000701EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -228,8 +462,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FF848D1A6CB499000701EA /* HomeVC.swift in Sources */,
 				88D92C6A1A6C6A6700B96D4C /* ChatVC.swift in Sources */,
+				88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */,
+				88FF84951A6CBD05000701EA /* ChatCell.swift in Sources */,
+				88FF84C91A6CE094000701EA /* TBVC.swift in Sources */,
 				88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */,
+				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
+				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +481,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		88FF849C1A6CC514000701EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FF84C21A6CC577000701EA /* ChatBubbleView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		88FF84A71A6CC514000701EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88FF84B51A6CC514000701EA /* ChatBubbleViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -248,6 +504,21 @@
 			isa = PBXTargetDependency;
 			target = 88D92C461A6C69DE00B96D4C /* TextDig */;
 			targetProxy = 88D92C581A6C69DE00B96D4C /* PBXContainerItemProxy */;
+		};
+		88FF84AE1A6CC514000701EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88FF84A01A6CC514000701EA /* ChatBubbleView */;
+			targetProxy = 88FF84AD1A6CC514000701EA /* PBXContainerItemProxy */;
+		};
+		88FF84B01A6CC514000701EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88D92C461A6C69DE00B96D4C /* TextDig */;
+			targetProxy = 88FF84AF1A6CC514000701EA /* PBXContainerItemProxy */;
+		};
+		88FF84B71A6CC514000701EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 88FF84A01A6CC514000701EA /* ChatBubbleView */;
+			targetProxy = 88FF84B61A6CC514000701EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -394,6 +665,83 @@
 			};
 			name = Release;
 		};
+		88FF84BB1A6CC514000701EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ChatBubbleView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		88FF84BC1A6CC514000701EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ChatBubbleView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		88FF84BF1A6CC514000701EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ChatBubbleViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextDig.app/TextDig";
+			};
+			name = Debug;
+		};
+		88FF84C01A6CC514000701EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ChatBubbleViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TextDig.app/TextDig";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -413,12 +761,30 @@
 				88D92C631A6C69DF00B96D4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88D92C641A6C69DF00B96D4C /* Build configuration list for PBXNativeTarget "TextDigTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				88D92C651A6C69DF00B96D4C /* Debug */,
 				88D92C661A6C69DF00B96D4C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		88FF84BA1A6CC514000701EA /* Build configuration list for PBXNativeTarget "ChatBubbleView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FF84BB1A6CC514000701EA /* Debug */,
+				88FF84BC1A6CC514000701EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		88FF84BE1A6CC514000701EA /* Build configuration list for PBXNativeTarget "ChatBubbleViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				88FF84BF1A6CC514000701EA /* Debug */,
+				88FF84C01A6CC514000701EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

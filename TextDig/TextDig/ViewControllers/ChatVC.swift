@@ -8,18 +8,28 @@
 
 import UIKit
 
-class ChatVC: UIViewController {
+class ChatVC: TBVC {
+  
+  var collectionViewDelegate: ChatCollectionViewDelegate?
+  @IBOutlet weak var collectionView: UICollectionView! {
+    didSet {
+      self.collectionViewDelegate = ChatCollectionViewDelegate(collectionView: self.collectionView)
+    }
+  }
   
   override init() {
     super.init(nibName: "ChatVC", bundle: nil)
   }
-
-  required init(coder aDecoder: NSCoder) {
-      fatalError("init(coder:) has not been implemented")
-  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.collectionView.reloadData()
+  }
+  
+  // MARK: Layout
+  override func deviceOrientationChanged() {
+    self.view.setNeedsLayout()
+    self.collectionView.collectionViewLayout.invalidateLayout()
   }
   
 }
