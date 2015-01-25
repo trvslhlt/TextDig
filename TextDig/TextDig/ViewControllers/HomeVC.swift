@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HomeVC: TBVC, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeVC: TDVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   let cellReuseID = "cell"
-  let detailVCClasses: [UIViewController.Type] = [ChatVC.self]
+  let detailVCClasses: [UIViewController.Type] = [ChatVC.self, ContactsVC.self]
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet{
       collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseID)
@@ -29,14 +29,6 @@ class HomeVC: TBVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let dao = DAO()
-    let contacts = dao.contacts
-    for c in contacts {
-      println("\(c)")
-    }
-    
-    
   }
   
   // MARK: UICollectionViewDelegate

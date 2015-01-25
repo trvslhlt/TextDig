@@ -13,8 +13,13 @@ protocol DataSource {
 }
 
 class DAO: Model {
-
-//  class func dataSource() -> DataSource.Protocol { return SQLiteGateway.self }
+  
+  class var sharedInstance: DAO {
+    struct Singleton {
+      static let instance = DAO()
+    }
+    return Singleton.instance
+  }
   
   lazy var contacts: [Contact] = {
     return SQLiteGateway.getContacts()

@@ -8,10 +8,50 @@
 
 import UIKit
 
-class ContactsVC: TBVC {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
+class ContactsVC: TDVC, UITableViewDelegate, UITableViewDataSource {
+  
+  @IBOutlet weak var tableView: UITableView! { didSet {
+    tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellReuseID)} }
+  let cellReuseID = "cell"
+  var contacts: [Contact] { get{ return self.dao.contacts } }
+  
+  override init() {
+    super.init(nibName: "ContactsVC", bundle: nil)
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  }
+  
+  // MARK: UITableViewDataCource
+  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return contacts.count
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as UITableViewCell
+    
+    let contact = contacts[indexPath.row]
+    cell.textLabel.text = contact.firstName
+    cell.detailTextLabel?.text = contact.uniqueID
+    
+    return cell
+  }
+  
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@
 		88414E941A74A7FA00E233D8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E931A74A7FA00E233D8 /* Contact.swift */; };
 		88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E951A74ACB900E233D8 /* ContactsVC.swift */; };
 		88414E981A74ACB900E233D8 /* ContactsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88414E961A74ACB900E233D8 /* ContactsVC.xib */; };
-		88414E9B1A74ACE700E233D8 /* TBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E9A1A74ACE700E233D8 /* TBVC.swift */; };
+		88414E9B1A74ACE700E233D8 /* TDVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E9A1A74ACE700E233D8 /* TDVC.swift */; };
 		88414E9D1A74AE8900E233D8 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E9C1A74AE8900E233D8 /* DAO.swift */; };
 		88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */; };
 		88414EA31A74BB1300E233D8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414EA21A74BB1300E233D8 /* Model.swift */; };
@@ -99,7 +99,7 @@
 		88414E931A74A7FA00E233D8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = Models/Contact.swift; sourceTree = "<group>"; };
 		88414E951A74ACB900E233D8 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsVC.swift; path = ViewControllers/ContactsVC.swift; sourceTree = "<group>"; };
 		88414E961A74ACB900E233D8 /* ContactsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactsVC.xib; path = ViewControllers/ContactsVC.xib; sourceTree = "<group>"; };
-		88414E9A1A74ACE700E233D8 /* TBVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TBVC.swift; path = ViewControllers/Base/TBVC.swift; sourceTree = "<group>"; };
+		88414E9A1A74ACE700E233D8 /* TDVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDVC.swift; path = ViewControllers/Base/TDVC.swift; sourceTree = "<group>"; };
 		88414E9C1A74AE8900E233D8 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
 		88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteGateway.swift; path = Utilities/SQLiteGateway.swift; sourceTree = "<group>"; };
 		88414EA21A74BB1300E233D8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Models/Model.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		88414E991A74ACC800E233D8 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				88414E9A1A74ACE700E233D8 /* TBVC.swift */,
+				88414E9A1A74ACE700E233D8 /* TDVC.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -557,7 +557,7 @@
 				88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */,
 				88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */,
 				88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */,
-				88414E9B1A74ACE700E233D8 /* TBVC.swift in Sources */,
+				88414E9B1A74ACE700E233D8 /* TDVC.swift in Sources */,
 				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
 				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
 				88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */,

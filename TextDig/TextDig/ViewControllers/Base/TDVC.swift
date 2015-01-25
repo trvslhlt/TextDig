@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TBVC: UIViewController {
+class TDVC: UIViewController {
+  
+  let dao = DAO.sharedInstance
   
   override func viewDidLoad() {
     super.viewDidLoad()

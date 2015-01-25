@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChatVC: TBVC {
+class ChatVC: TDVC {
   
   var collectionViewDelegate: ChatCollectionViewDelegate?
   @IBOutlet weak var collectionView: UICollectionView! {
