@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import TextDig
 
 @IBDesignable class ChatBubbleView: UIView {
   

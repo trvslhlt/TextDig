@@ -48,13 +48,15 @@ class CleanDBManager
 	end
 
 	def populate_messages_table (messages)
+		most_recent_msg_timestamp_in_db = self.most_recent_time_stamp
 		msg_count = messages.count
 		fields = "#{MessagesGateway::UNIQUE_ID},#{MessagesGateway::TYPE},#{MessagesGateway::TIME},#{MessagesGateway::DATE},#{MessagesGateway::TEXT},#{MessagesGateway::ATTACHMENT_ID}"
 		messages.each_with_index do |m, index|
-			p "#{index} / #{msg_count}"
 			unique_id = m[MessagesGateway::UNIQUE_ID]
 			type = m[MessagesGateway::TYPE]
 			time = m[MessagesGateway::TIME]
+			if time <= most_recent_time_stamp then next end
+			p "#{index} / #{msg_count}"
 			date = m[MessagesGateway::DATE]
 			text = m[MessagesGateway::TEXT]
 			attachment_id = m[MessagesGateway::ATTACHMENT_ID] ? m[MessagesGateway::ATTACHMENT_ID] : "NULL"
@@ -86,6 +88,12 @@ class CleanDBManager
 			last = c[ContactsGateway::LAST]
 			@db.execute("INSERT INTO #{CONTACTS_TABLE}(#{fields}) VALUES (?, ?, ?, ?)", [unique_id, contact_id, first, last])
 		end
+	end
+
+	def most_recent_time_stamp
+		results = @db.execute("SELECT MAX(#{MessagesGateway::TIME}) FROM \"#{MESSAGES_TABLE}\"")
+		r = results[0]
+		return r[0]
 	end
 end
 

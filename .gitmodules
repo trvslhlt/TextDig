@@ -1,0 +1,3 @@
+[submodule "TextDig/SwiftData"]
+	path = TextDig/SwiftData
+	url = https://github.com/ryanfowler/SwiftData

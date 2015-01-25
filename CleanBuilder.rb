@@ -11,17 +11,25 @@ backup_directory = 'most_recent_backup/'
 contacts_db_path = backup_directory + contacts_db
 messages_db_path = backup_directory + messages_db
 
+clean_manager = CleanDBManager.new clean_db
+most_recent_clean_message_timestamp = clean_manager.most_recent_time_stamp
 contacts_gateway = ContactsGateway.new contacts_db_path
-messages_gateway = MessagesGateway.new messages_db_path 
+messages_gateway = MessagesGateway.new(messages_db_path, most_recent_clean_message_timestamp) 
 contacts = contacts_gateway.contacts
 messages = messages_gateway.messages
 attachments = messages_gateway.attachments
 
-a = CleanDBManager.new clean_db
-p "...inserting contacts"
-a.populate_contacts_table contacts
-p "...inserting attachments"
-a.populate_attachments_table attachments
+
+p messages.count
+# p "...inserting contacts"
+# a.populate_contacts_table contacts
+# p "...inserting attachments"
+# a.populate_attachments_table attachments
 p "...inserting messages"
-a.populate_messages_table messages
+# clean_manager.populate_messages_table messages
+
+
+# p a.most_recent_time_stamp
+# p messages_gateway.most_recent_message
+
 

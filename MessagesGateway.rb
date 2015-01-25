@@ -18,11 +18,12 @@ class MessagesGateway
 	FILENAME = "filename"
 	SHA1_FILENAME = "sha1_filename"
 
-	attr_accessor :messages, :attachments, :source_db_url, :message_fields
+	attr_accessor :messages, :attachments, :source_db_url, :message_fields, :checkpoint_timestamp
 
-	def initialize(source_db_url)
+	def initialize(source_db_url, most_recent_clean_message_timestamp)
 		begin 
 			@source_db_url = source_db_url
+			@checkpoint_timestamp = most_recent_clean_message_timestamp
 			@source_db = SQLite3::Database.open @source_db_url
 			@message_fields = []
 			@messages = self.get_messages
@@ -41,7 +42,7 @@ class MessagesGateway
 
 
 	def get_messages
-		stm = @source_db.prepare( MessagesGateway.messages_query_string)
+		stm = @source_db.prepare( self.messages_query_string )
 		@message_fields = stm.columns
 
 		msg_hashes = []
@@ -105,8 +106,18 @@ class MessagesGateway
 		return msg_hash
 	end
 
-	def self.messages_query_string
-		 "SELECT 
+	def most_recent_message
+		most_recent_message_unique_id = 0
+		@messages.each do |m|
+			most_recent_message_unique_id = [most_recent_message_unique_id, m[DATE]].max
+		end
+		return most_recent_message_unique_id
+	end
+
+	def messages_query_string
+		checkpoint = @checkpoint_timestamp - 978307200 - 1000
+
+		stm = "SELECT 
             m.rowid as RowID,
             h.id AS #{UNIQUE_ID}, 
             CASE is_from_me 
@@ -132,29 +143,17 @@ class MessagesGateway
         LEFT JOIN handle h ON h.rowid = m.handle_id
         LEFT JOIN message_attachment_join maj
         ON maj.message_id = m.rowid
+        WHERE Time < #{checkpoint}
         ORDER BY UniqueID, Date, Time"
+        p stm
+        return stm
 	end
 
 	def self.attachment_query_string(row_id)
 		"SELECT * FROM attachment WHERE ROWID = \"#{row_id}\""
 	end
 
-
-
-
-
 end
-
-
-
-
-978307200 + 317584280
-
-
-
-
-
-
 
 
 

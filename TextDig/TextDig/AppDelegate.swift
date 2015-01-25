@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let rootVC = HomeVC()
     let rootNavVC = UINavigationController(rootViewController: rootVC)
     self.window?.rootViewController = rootNavVC
+    
+    TDDocumentManager.copyDB()
+    
     return true
   }
   

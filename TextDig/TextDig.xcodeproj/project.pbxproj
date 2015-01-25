@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88414E601A748CEE00E233D8 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E5F1A748CEE00E233D8 /* SwiftData.swift */; };
+		88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E911A74A0D000E233D8 /* TDDocumentManager.swift */; };
+		88414E941A74A7FA00E233D8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E931A74A7FA00E233D8 /* Contact.swift */; };
+		88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E951A74ACB900E233D8 /* ContactsVC.swift */; };
+		88414E981A74ACB900E233D8 /* ContactsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88414E961A74ACB900E233D8 /* ContactsVC.xib */; };
+		88414E9B1A74ACE700E233D8 /* TBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E9A1A74ACE700E233D8 /* TBVC.swift */; };
+		88414E9D1A74AE8900E233D8 /* DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414E9C1A74AE8900E233D8 /* DAO.swift */; };
+		88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */; };
+		88414EA31A74BB1300E233D8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414EA21A74BB1300E233D8 /* Model.swift */; };
+		8860E00A1A71CAA400270A91 /* clean.db in Resources */ = {isa = PBXBuildFile; fileRef = 8860E0091A71CAA400270A91 /* clean.db */; };
+		8860E00C1A71CB1C00270A91 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */; };
 		88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */; };
 		88D92C4F1A6C69DE00B96D4C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C4E1A6C69DE00B96D4C /* Images.xcassets */; };
 		88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C501A6C69DE00B96D4C /* LaunchScreen.xib */; };
@@ -26,7 +37,6 @@
 		88FF84C21A6CC577000701EA /* ChatBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C11A6CC577000701EA /* ChatBubbleView.swift */; };
 		88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */; };
 		88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */; };
-		88FF84C91A6CE094000701EA /* TBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FF84C81A6CE094000701EA /* TBVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +71,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		88414E5C1A7437EB00E233D8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		88FF84BD1A6CC514000701EA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +94,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		88414E5F1A748CEE00E233D8 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = SwiftData/SwiftData.swift; sourceTree = SOURCE_ROOT; };
+		88414E911A74A0D000E233D8 /* TDDocumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDDocumentManager.swift; path = Utilities/TDDocumentManager.swift; sourceTree = "<group>"; };
+		88414E931A74A7FA00E233D8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = Models/Contact.swift; sourceTree = "<group>"; };
+		88414E951A74ACB900E233D8 /* ContactsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsVC.swift; path = ViewControllers/ContactsVC.swift; sourceTree = "<group>"; };
+		88414E961A74ACB900E233D8 /* ContactsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactsVC.xib; path = ViewControllers/ContactsVC.xib; sourceTree = "<group>"; };
+		88414E9A1A74ACE700E233D8 /* TBVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TBVC.swift; path = ViewControllers/Base/TBVC.swift; sourceTree = "<group>"; };
+		88414E9C1A74AE8900E233D8 /* DAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DAO.swift; sourceTree = "<group>"; };
+		88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteGateway.swift; path = Utilities/SQLiteGateway.swift; sourceTree = "<group>"; };
+		88414EA21A74BB1300E233D8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Model.swift; path = Models/Model.swift; sourceTree = "<group>"; };
+		8860E0091A71CAA400270A91 /* clean.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = clean.db; sourceTree = "<group>"; };
+		8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextDig-Bridging-Header.h"; sourceTree = "<group>"; };
 		88D92C471A6C69DE00B96D4C /* TextDig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D92C4B1A6C69DE00B96D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +130,6 @@
 		88FF84C11A6CC577000701EA /* ChatBubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBubbleView.swift; sourceTree = "<group>"; };
 		88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreGraphicsExtensions.swift; path = Extensions/CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
 		88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIKitExtensions.swift; path = Extensions/UIKitExtensions.swift; sourceTree = "<group>"; };
-		88FF84C81A6CE094000701EA /* TBVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TBVC.swift; path = ViewControllers/TBVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FF84B81A6CC514000701EA /* ChatBubbleView.framework in Frameworks */,
+				8860E00C1A71CB1C00270A91 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +167,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88414E5E1A748CD200E233D8 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				88414E5F1A748CEE00E233D8 /* SwiftData.swift */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		88414E991A74ACC800E233D8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				88414E9A1A74ACE700E233D8 /* TBVC.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		8860E0051A71C8E700270A91 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				88414E911A74A0D000E233D8 /* TDDocumentManager.swift */,
+				88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		8860E0081A71CA8800270A91 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8860E0091A71CAA400270A91 /* clean.db */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8860E0111A71CBEF00270A91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		88D92C3E1A6C69DE00B96D4C = {
 			isa = PBXGroup;
 			children = (
@@ -161,15 +233,20 @@
 		88D92C491A6C69DE00B96D4C /* TextDig */ = {
 			isa = PBXGroup;
 			children = (
-				88FF84C31A6CCF24000701EA /* Extensions */,
-				88FF84921A6CBC93000701EA /* Views */,
-				88FF848F1A6CBBAD000701EA /* Delegates */,
-				88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */,
-				88D92C681A6C6A1600B96D4C /* Models */,
-				88D92C671A6C69FD00B96D4C /* ViewControllers */,
-				88D92C4E1A6C69DE00B96D4C /* Images.xcassets */,
 				88D92C501A6C69DE00B96D4C /* LaunchScreen.xib */,
+				88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */,
+				8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */,
+				88D92C4E1A6C69DE00B96D4C /* Images.xcassets */,
+				88FF848F1A6CBBAD000701EA /* Delegates */,
+				88FF84C31A6CCF24000701EA /* Extensions */,
+				8860E0111A71CBEF00270A91 /* Frameworks */,
+				88D92C681A6C6A1600B96D4C /* Models */,
+				8860E0081A71CA8800270A91 /* Resources */,
 				88D92C4A1A6C69DE00B96D4C /* Supporting Files */,
+				88414E5E1A748CD200E233D8 /* ThirdParty */,
+				88D92C671A6C69FD00B96D4C /* ViewControllers */,
+				88FF84921A6CBC93000701EA /* Views */,
+				8860E0051A71C8E700270A91 /* Utilities */,
 			);
 			path = TextDig;
 			sourceTree = "<group>";
@@ -202,7 +279,9 @@
 		88D92C671A6C69FD00B96D4C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				88FF84C81A6CE094000701EA /* TBVC.swift */,
+				88414E991A74ACC800E233D8 /* Base */,
+				88414E951A74ACB900E233D8 /* ContactsVC.swift */,
+				88414E961A74ACB900E233D8 /* ContactsVC.xib */,
 				88FF848B1A6CB499000701EA /* HomeVC.swift */,
 				88FF848C1A6CB499000701EA /* HomeVC.xib */,
 				88D92C691A6C6A6700B96D4C /* ChatVC.swift */,
@@ -214,6 +293,9 @@
 		88D92C681A6C6A1600B96D4C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				88414E931A74A7FA00E233D8 /* Contact.swift */,
+				88414EA21A74BB1300E233D8 /* Model.swift */,
+				88414E9C1A74AE8900E233D8 /* DAO.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -309,6 +391,7 @@
 				88D92C441A6C69DE00B96D4C /* Frameworks */,
 				88D92C451A6C69DE00B96D4C /* Resources */,
 				88FF84BD1A6CC514000701EA /* Embed Frameworks */,
+				88414E5C1A7437EB00E233D8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -427,10 +510,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */,
+				8860E00A1A71CAA400270A91 /* clean.db in Resources */,
 				88FF848E1A6CB499000701EA /* HomeVC.xib in Resources */,
 				88FF84961A6CBD05000701EA /* ChatCell.xib in Resources */,
 				88D92C6C1A6C6AC700B96D4C /* ChatVC.xib in Resources */,
 				88D92C4F1A6C69DE00B96D4C /* Images.xcassets in Resources */,
+				88414E981A74ACB900E233D8 /* ContactsVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,14 +547,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88414EA31A74BB1300E233D8 /* Model.swift in Sources */,
+				88414E9D1A74AE8900E233D8 /* DAO.swift in Sources */,
+				88414E941A74A7FA00E233D8 /* Contact.swift in Sources */,
 				88FF848D1A6CB499000701EA /* HomeVC.swift in Sources */,
 				88D92C6A1A6C6A6700B96D4C /* ChatVC.swift in Sources */,
 				88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */,
 				88FF84951A6CBD05000701EA /* ChatCell.swift in Sources */,
-				88FF84C91A6CE094000701EA /* TBVC.swift in Sources */,
+				88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */,
+				88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */,
 				88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */,
+				88414E9B1A74ACE700E233D8 /* TBVC.swift in Sources */,
 				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
 				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
+				88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */,
+				88414E601A748CEE00E233D8 /* SwiftData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,9 +707,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TextDig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TextDig/TextDig-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -625,9 +720,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TextDig/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TextDig/TextDig-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -779,6 +876,7 @@
 				88FF84BC1A6CC514000701EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		88FF84BE1A6CC514000701EA /* Build configuration list for PBXNativeTarget "ChatBubbleViewTests" */ = {
 			isa = XCConfigurationList;
@@ -787,6 +885,7 @@
 				88FF84C01A6CC514000701EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

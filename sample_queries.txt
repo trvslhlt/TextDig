@@ -3,3 +3,22 @@ sample_queries.txt
 SELECT * FROM contacts WHERE First LIKE "ki";
 SELECT * FROM messages WHERE Text = "K";
 
+
+
+
+
+=======
+ideas
+
+character distribution vs. population
+heat map of our text times throughout the day
+text's per day over time
+map of silent periods - time between texts
+in/out ratio
+text length
+comparisons to others
+number of emoticons
+# of photos
+
+
+words - K, Niota, Ki, asshole, love, WAT, bisc, ..., 

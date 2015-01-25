@@ -29,6 +29,14 @@ class HomeVC: TBVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let dao = DAO()
+    let contacts = dao.contacts
+    for c in contacts {
+      println("\(c)")
+    }
+    
+    
   }
   
   // MARK: UICollectionViewDelegate
