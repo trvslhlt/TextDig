@@ -14,6 +14,8 @@
 		<string>https://github.com/trvslhlt/TextDig.git</string>
 		<key>3AE8ED2E684071AF4FB151FA51BF266B82FF45BD</key>
 		<string>https://github.com/stephencelis/SQLite.swift</string>
+		<key>AA612C451D6B79DFA33E18667F890F2728E039C6</key>
+		<string>https://github.com/ryanfowler/SwiftData</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TextDig/TextDig.xcodeproj</string>
@@ -22,7 +24,9 @@
 		<key>22E6502CEB3CAB22FA08FA6D6E77627F8F9268EA</key>
 		<string>../../..</string>
 		<key>3AE8ED2E684071AF4FB151FA51BF266B82FF45BD</key>
-		<string>../../../TextDig/SQLite.swift/</string>
+		<string>../../../TextDig/SQLite.swift</string>
+		<key>AA612C451D6B79DFA33E18667F890F2728E039C6</key>
+		<string>../../../TextDig/SwiftData/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/trvslhlt/TextDig.git</string>
@@ -39,6 +43,14 @@
 			<string>3AE8ED2E684071AF4FB151FA51BF266B82FF45BD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SQLite.swift</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AA612C451D6B79DFA33E18667F890F2728E039C6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SwiftData</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

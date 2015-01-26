@@ -17,8 +17,6 @@ class TDVC: UIViewController {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "deviceOrientationChanged", name: UIDeviceOrientationDidChangeNotification, object: nil)
   }
   
-  func deviceOrientationChanged() {
-    //optional override in subclasses
-  }
+  func deviceOrientationChanged() {}
   
 }

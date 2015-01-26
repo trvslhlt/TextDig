@@ -29,6 +29,15 @@ class HomeVC: TDVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+//    let messages = SQLiteGateway.getMessages(limit: 1000)
+//    for message in messages {
+//      println("\(message)")
+//    }
+    let attachments = SQLiteGateway.getAttachments()
+    for a in attachments {
+      println("\(a)")
+    }
   }
   
   // MARK: UICollectionViewDelegate

@@ -18,6 +18,8 @@
 		88414EA31A74BB1300E233D8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88414EA21A74BB1300E233D8 /* Model.swift */; };
 		8860E00A1A71CAA400270A91 /* clean.db in Resources */ = {isa = PBXBuildFile; fileRef = 8860E0091A71CAA400270A91 /* clean.db */; };
 		8860E00C1A71CB1C00270A91 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */; };
+		888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A43BC1A75A5F5003B3CBE /* Message.swift */; };
+		888A43BF1A75B7C7003B3CBE /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A43BE1A75B7C7003B3CBE /* Attachment.swift */; };
 		88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */; };
 		88D92C4F1A6C69DE00B96D4C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C4E1A6C69DE00B96D4C /* Images.xcassets */; };
 		88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C501A6C69DE00B96D4C /* LaunchScreen.xib */; };
@@ -106,6 +108,8 @@
 		8860E0091A71CAA400270A91 /* clean.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = clean.db; sourceTree = "<group>"; };
 		8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextDig-Bridging-Header.h"; sourceTree = "<group>"; };
+		888A43BC1A75A5F5003B3CBE /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Models/Message.swift; sourceTree = "<group>"; };
+		888A43BE1A75B7C7003B3CBE /* Attachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attachment.swift; path = Models/Attachment.swift; sourceTree = "<group>"; };
 		88D92C471A6C69DE00B96D4C /* TextDig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D92C4B1A6C69DE00B96D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +212,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		888A43BB1A75A5C3003B3CBE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				88414E9C1A74AE8900E233D8 /* DAO.swift */,
+				88414EA21A74BB1300E233D8 /* Model.swift */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		88D92C3E1A6C69DE00B96D4C = {
 			isa = PBXGroup;
 			children = (
@@ -293,9 +306,10 @@
 		88D92C681A6C6A1600B96D4C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				888A43BB1A75A5C3003B3CBE /* Base */,
+				888A43BE1A75B7C7003B3CBE /* Attachment.swift */,
 				88414E931A74A7FA00E233D8 /* Contact.swift */,
-				88414EA21A74BB1300E233D8 /* Model.swift */,
-				88414E9C1A74AE8900E233D8 /* DAO.swift */,
+				888A43BC1A75A5F5003B3CBE /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -553,6 +567,7 @@
 				88FF848D1A6CB499000701EA /* HomeVC.swift in Sources */,
 				88D92C6A1A6C6A6700B96D4C /* ChatVC.swift in Sources */,
 				88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */,
+				888A43BF1A75B7C7003B3CBE /* Attachment.swift in Sources */,
 				88FF84951A6CBD05000701EA /* ChatCell.swift in Sources */,
 				88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */,
 				88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */,
@@ -560,6 +575,7 @@
 				88414E9B1A74ACE700E233D8 /* TDVC.swift in Sources */,
 				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
 				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
+				888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */,
 				88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */,
 				88414E601A748CEE00E233D8 /* SwiftData.swift in Sources */,
 			);
