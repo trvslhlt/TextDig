@@ -17,7 +17,7 @@ class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, 
     super.init()
     self.collectionView.delegate = self
     self.collectionView.dataSource = self
-    self.collectionView.registerNib(UINib(nibName: "ChatCell", bundle: nil), forCellWithReuseIdentifier: ChatCell.reuseID())
+    self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
   }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -29,7 +29,7 @@ class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, 
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ChatCell.reuseID(), forIndexPath: indexPath) as ChatCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
     return cell
   }
   

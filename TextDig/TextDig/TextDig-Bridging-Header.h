@@ -5,3 +5,12 @@
 
 
 #import <sqlite3.h>
+
+
+
+//Pods
+#import "PureLayout.h"
+#import <AFNetworking.h>
+#import <S3.h>
+#import <AWSCore.h>
+#import <Cognito.h>

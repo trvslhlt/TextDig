@@ -36,7 +36,7 @@ class ContactsVC: TDVC, UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseID, forIndexPath: indexPath) as UITableViewCell
     
     let contact = contacts[indexPath.row]
-    cell.textLabel.text = contact.firstName
+    cell.textLabel?.text = contact.firstName
     cell.detailTextLabel?.text = contact.uniqueID
     
     return cell
