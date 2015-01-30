@@ -12,13 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   var window: UIWindow?
-  
-//  let cognitoAccountId = "Your-AccountID"
-//  let cognitoIdentityPoolId = "Your-PoolID"
-//  let cognitoUnauthRoleArn = "Your-RoleUnauth"
-//  let snsPlatformApplicationArn = "Your-Platform-Applicatoin-ARN"
-//  let mobileAnalyticsAppId = "Your-MobileAnalytics-AppId" 
-  
+  let accountId = "223366426604"
+  let identityPoolId = "us-east-1:bef293eb-ade6-4a41-bea4-0b008db55bd8"
+  let cognitoUnauthRoleArn = "arn:aws:iam::223366426604:role/Cognito_TextDigUnauth_DefaultRole"
+  let cognitoAuthRoleArn = "arn:aws:iam::223366426604:role/Cognito_TextDigAuth_DefaultRole"
+  var backgroundDownloadSessionCompletionHandler: ()?
+  var backgroundUploadSessionCompletionHandler: ()?
+  lazy var credentialsProvider: AWSCognitoCredentialsProvider = {
+    let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(
+      AWSRegionType.USEast1,
+      accountId: self.accountId,
+      identityPoolId: self.identityPoolId,
+      unauthRoleArn: self.cognitoUnauthRoleArn,
+      authRoleArn: self.cognitoAuthRoleArn)
+    let defaultServiceConfiguration = AWSServiceConfiguration(
+      region: AWSRegionType.USEast1,
+      credentialsProvider: credentialsProvider)
+    AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(defaultServiceConfiguration)
+    return credentialsProvider
+  }()
+    
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     // Override point for customization after application launch.
@@ -28,10 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let rootNavVC = UINavigationController(rootViewController: rootVC)
     self.window?.rootViewController = rootNavVC
     
+    
     TDDocumentManager.copyDB()
     
-    provideAWSCredentials()
-    retrieveCognitoIDAndAWSCredentials()
+//    createDefaultServiceConfiguration()
+    
+//    provideAWSCredentials()
+//    retrieveCognitoIDAndAWSCredentials()
     
     return true
   }
@@ -58,22 +74,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
   
+  func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    return GPPURLHandler.handleURL(url, sourceApplication: sourceApplication, annotation: annotation)
+  }
   
-  func provideAWSCredentials() {
-    let credentialsProvider = AWSCognitoCredentialsProvider.credentialsWithRegionType(AWSRegionType.USEast1, identityPoolId: "us-east-1:bef293eb-ade6-4a41-bea4-0b008db55bd8")
-    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentialsProvider)
-    AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(configuration)
+  func application(application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: () -> Void) {
+    if identifier == BackgroundSessionDownloadIdentifier {
+      self.backgroundDownloadSessionCompletionHandler = completionHandler()
+    } else if identifier == BackgroundSessionDownloadIdentifier {
+      self.backgroundUploadSessionCompletionHandler = completionHandler()
+    }
   }
-
-  func retrieveCognitoIDAndAWSCredentials() {
-//    // Retrieve your cognito ID.
-//    NSString *cognitoId = credentialsProvider.identityId;
-//    // create a configuration that uses the provider
-//    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1
-//      provider:credentialsProvider];
-//    // get a client with the specified config
-//    AWSDynamoDB *dynamoDB = [[AWSDynamoDB new] initWithConfiguration:configuration];
-  }
+  
+  
+//  func createDefaultServiceConfiguration() {
+////    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast1, credentialsProvider: credentialsProvider)
+////    AWSServiceManager.defaultServiceManager().setDefaultServiceConfiguration(configuration)
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//    
+//  }
+//
+//  func retrieveCognitoIDAndAWSCredentials() {
+////    // Retrieve your cognito ID.
+////    NSString *cognitoId = credentialsProvider.identityId;
+////    // create a configuration that uses the provider
+////    AWSServiceConfiguration *configuration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSEast1
+////      provider:credentialsProvider];
+////    // get a client with the specified config
+////    AWSDynamoDB *dynamoDB = [[AWSDynamoDB new] initWithConfiguration:configuration];
+//  }
 }
 
 

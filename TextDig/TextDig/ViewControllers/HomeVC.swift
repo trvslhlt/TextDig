@@ -11,7 +11,7 @@ import UIKit
 class HomeVC: TDVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   let cellReuseID = "cell"
-  let detailVCClasses: [UIViewController.Type] = [ChatVC.self, ContactsVC.self]
+  let detailVCClasses: [UIViewController.Type] = [ChatVC.self, ContactsVC.self, GooglePlusSignInVC.self]
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet{
       collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: cellReuseID)
@@ -29,6 +29,13 @@ class HomeVC: TDVC, UICollectionViewDataSource, UICollectionViewDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
+    
+
+    
+    
+    
     
 //    let messages = SQLiteGateway.getMessages(limit: )
 //    for message in messages {

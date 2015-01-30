@@ -14,3 +14,7 @@
 #import <S3.h>
 #import <AWSCore.h>
 #import <Cognito.h>
+
+//Third Party
+#import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GoogleOpenSource.h>

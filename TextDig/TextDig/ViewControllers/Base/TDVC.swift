@@ -11,6 +11,8 @@ import UIKit
 class TDVC: UIViewController {
   
   let dao = DAO.sharedInstance
+  var appDelegate: AppDelegate { get { return UIApplication.sharedApplication().delegate as AppDelegate
+ } }
   
   override func viewDidLoad() {
     super.viewDidLoad()
