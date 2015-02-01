@@ -24,16 +24,28 @@
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="RFf-hh-I2g"/>
-                        <outlet property="delegate" destination="-1" id="ax2-Ag-V6V"/>
-                    </connections>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-dN-8D6">
+                    <rect key="frame" x="562" y="562" width="30" height="30"/>
+                    <state key="normal" title="bi">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="logoutTapped:" destination="-1" eventType="touchUpInside" id="IuR-xO-fhN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="5JP-O6-UjD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JuJ-a8-2sg"/>
                 <constraint firstItem="5JP-O6-UjD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RE8-4S-3Me"/>
+                <constraint firstAttribute="trailing" secondItem="LDb-dN-8D6" secondAttribute="trailing" constant="8" id="d57-WR-hyb"/>
+                <constraint firstAttribute="bottom" secondItem="LDb-dN-8D6" secondAttribute="bottom" constant="8" id="jcB-NN-0gm"/>
                 <constraint firstAttribute="bottom" secondItem="5JP-O6-UjD" secondAttribute="bottom" id="tU1-m1-8yH"/>
                 <constraint firstAttribute="trailing" secondItem="5JP-O6-UjD" secondAttribute="trailing" id="v2m-nQ-xR2"/>
             </constraints>

@@ -24,5 +24,9 @@ class DAO: Model {
   lazy var contacts: [Contact] = {
     return SQLiteGateway.getContacts()
   }()
+  
+  lazy var user: User = {
+    return User()
+  }()
 
 }
