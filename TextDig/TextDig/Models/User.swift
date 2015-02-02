@@ -12,29 +12,31 @@ class User: Model {
   
   var loginDelegate: GooglePlusSignInDelegate { get { return GooglePlusSignInDelegate.sharedInstance } }
   var beginLogin: (() -> ())?
-  var endLogin: ((successful: Bool) -> ())?
+  var endLogin: ((success: Bool) -> ())?
   var beginLogout: (() -> ())?
-  var endLogout: ((successful: Bool) -> ())?
+  var endLogout: ((success: Bool) -> ())?
+  var email: String { get { return loginDelegate.getUserEmail() } }
   
   func isLoggedIn() -> Bool {
     self.beginLogin?()
     let ili = loginDelegate.isLoggedIn()
-    self.endLogin?(successful: ili)
+    self.endLogin?(success: ili)
     return ili
   }
   
   func login() {
     self.beginLogin?()
     if loginDelegate.isLoggedIn() {
-      self.endLogin?(successful: true)
+      self.endLogin?(success: true)
       return
     }
     loginDelegate.afterSuccessfulLogin = {
-      self.endLogin?(successful: true)
+      println("\(self.email)")
+      self.endLogin?(success: true)
       return
     }
     loginDelegate.afterUnsuccessfulLogin = {
-      self.endLogin?(successful: false)
+      self.endLogin?(success: false)
       return
     }
     loginDelegate.login()
@@ -44,9 +46,9 @@ class User: Model {
     beginLogout?()
     loginDelegate.afterLogout = { error in
       if error == nil {
-        self.endLogout?(successful: true)
+        self.endLogout?(success: true)
       } else {
-        self.endLogout?(successful: false)
+        self.endLogout?(success: false)
       }
     }
     loginDelegate.logout()

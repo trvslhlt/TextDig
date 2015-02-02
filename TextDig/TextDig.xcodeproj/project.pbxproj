@@ -23,6 +23,7 @@
 		884CFC211A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC201A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift */; };
 		884CFC231A7ED7AA001F0518 /* TDActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC221A7ED7AA001F0518 /* TDActivityIndicatorView.swift */; };
 		884CFC251A7EE1F0001F0518 /* HomeCVDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC241A7EE1F0001F0518 /* HomeCVDelegate.swift */; };
+		884CFC281A7EEFBC001F0518 /* StandardModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC271A7EEFBC001F0518 /* StandardModalTransition.swift */; };
 		8860E00A1A71CAA400270A91 /* clean.db in Resources */ = {isa = PBXBuildFile; fileRef = 8860E0091A71CAA400270A91 /* clean.db */; };
 		8860E00C1A71CB1C00270A91 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */; };
 		888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A43BC1A75A5F5003B3CBE /* Message.swift */; };
@@ -106,6 +107,7 @@
 		884CFC201A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GooglePlusSignInDelegate.swift; path = Utilities/GooglePlusSignInDelegate.swift; sourceTree = "<group>"; };
 		884CFC221A7ED7AA001F0518 /* TDActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TDActivityIndicatorView.swift; path = Views/TDActivityIndicatorView.swift; sourceTree = "<group>"; };
 		884CFC241A7EE1F0001F0518 /* HomeCVDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCVDelegate.swift; path = Delegate/HomeCVDelegate.swift; sourceTree = "<group>"; };
+		884CFC271A7EEFBC001F0518 /* StandardModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardModalTransition.swift; path = Transitions/StandardModalTransition.swift; sourceTree = "<group>"; };
 		8860E0091A71CAA400270A91 /* clean.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = clean.db; sourceTree = "<group>"; };
 		8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextDig-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -232,6 +234,14 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		884CFC261A7EEF89001F0518 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				884CFC271A7EEFBC001F0518 /* StandardModalTransition.swift */,
+			);
+			name = Transitions;
+			sourceTree = "<group>";
+		};
 		8860E0051A71C8E700270A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 				8860E0081A71CA8800270A91 /* Resources */,
 				88D92C4A1A6C69DE00B96D4C /* Supporting Files */,
 				88414E5E1A748CD200E233D8 /* ThirdParty */,
+				884CFC261A7EEF89001F0518 /* Transitions */,
 				88D92C671A6C69FD00B96D4C /* ViewControllers */,
 				88FF84921A6CBC93000701EA /* Views */,
 				8860E0051A71C8E700270A91 /* Utilities */,
@@ -637,6 +648,7 @@
 				884CFC1C1A7EB746001F0518 /* LoginVC.swift in Sources */,
 				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
 				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
+				884CFC281A7EEFBC001F0518 /* StandardModalTransition.swift in Sources */,
 				888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */,
 				88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */,
 				884CFC211A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift in Sources */,

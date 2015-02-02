@@ -18,6 +18,7 @@ class GooglePlusSignInDelegate: NSObject, GPPSignInDelegate {
       si.clientID = kClientId
       si.scopes = ["profile"]
       si.delegate = self
+      si.shouldFetchGoogleUserEmail = true
       return si
     }
   }
@@ -44,6 +45,10 @@ class GooglePlusSignInDelegate: NSObject, GPPSignInDelegate {
     signIn.disconnect()
   }
   
+  func getUserEmail() -> String {
+    return signIn.userEmail ?? ""
+  }
+  
   // MARK: GPPSingInDelegate
   func finishedWithAuth(auth: GTMOAuth2Authentication!, error: NSError!) {
     if error != nil {
@@ -53,14 +58,12 @@ class GooglePlusSignInDelegate: NSObject, GPPSignInDelegate {
         let providerKey = AWSCognitoLoginProviderKey.Google.rawValue
         appDelegate.credentialsProvider.logins = [providerKey: idToken]
         self.afterSuccessfulLogin?()
-        println("authentication successful")
       }
     }
   }
   
   func didDisconnectWithError(error: NSError!) {
     self.afterLogout?(error)
-    println("logout with error: \(error != nil)")
   }
   
 }

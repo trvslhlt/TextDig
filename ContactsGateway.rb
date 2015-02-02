@@ -63,6 +63,7 @@ class ContactsGateway
 
 	def self.normalize_unique_id( dirty_unique_id)
 		if dirty_unique_id.nil? then return nil end
+		if dirty_unique_id.include? "@" then return dirty_unique_id end
 		inter = dirty_unique_id.gsub(/( |\+|\(|\)|\-|\.)/,"")
 		clean_unique_id = inter.sub(/^1/, "")
 		clean_unique_id

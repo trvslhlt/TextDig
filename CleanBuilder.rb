@@ -19,8 +19,8 @@ contacts = contacts_gateway.contacts
 messages = messages_gateway.messages
 attachments = messages_gateway.attachments
 
-
-p messages.count
+contacts.each { |c| p c }
+# p messages.count
 # p "...inserting contacts"
 # a.populate_contacts_table contacts
 # p "...inserting attachments"

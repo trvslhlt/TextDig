@@ -14,9 +14,9 @@ class Message: Model {
   let text: String
   let time: NSDate
   let uniqueID: String
-  let attachmentID: String?
+  let attachmentID: Int?
   
-  init(toMe: Bool, text: String, time: NSDate, uniqueID: String, attachmentID: String?) {
+  init(toMe: Bool, text: String, time: NSDate, uniqueID: String, attachmentID: Int?) {
     self.toMe = toMe
     self.text = text
     self.time = time

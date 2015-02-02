@@ -12,6 +12,42 @@ class SQLiteGateway: NSObject, DataSource {
   
   typealias Row = SwiftData.SDRow
   typealias QueryResult = (Row, Int?)
+  enum Table: String {
+    case Messages = "messages"
+    case Contacts = "contacts"
+  }
+  
+
+  
+  
+  class func getContactIDForName(name: String) -> Int? {
+    let qr = SD.executeQuery("SELECT ContactID from \(Table.Contacts.rawValue) WHERE First = ?", withArgs: [name])
+    if qr.error != nil { return nil }
+    if qr.result.count != 0 {
+      if let c = qr.result[0][contactIDKey()]?.asInt() {
+        return c
+      }
+    }
+    return nil
+  }
+  
+  class func getUniqueIDsForContactID(contactID: Int) -> [String] {
+    let qr = SD.executeQuery("SELECT UniqueID from \(Table.Contacts.rawValue) WHERE ContactID = ?", withArgs: [contactID])
+    if qr.error != nil { return [String]() }
+    return qr.result.map { $0[self.uniqueIDKey()]?.asString() }.filter { $0 != nil }.map { $0! }
+  }
+  
+  class func getMessagesForUniqueID(uniqueID: String) -> [Message] {
+    let qr = SD.executeQuery("SELECT * from \(Table.Messages.rawValue) WHERE UniqueID = ?", withArgs: [uniqueID])
+    if qr.error != nil { return [Message]() }
+    return qr.result.map { self.messageFromRow($0) }.filter { $0 != nil}.map { $0! }
+  }
+  
+  
+  
+  
+  
+  
   
   // MARK: Messages
   private class func toMeKey() -> String { return "Type" }
@@ -22,8 +58,8 @@ class SQLiteGateway: NSObject, DataSource {
   
   class func getMessages(#limit: Int) -> [Message] {
     let qr = SD.executeQuery("SELECT * FROM messages LIMIT ?", withArgs: [limit])
-    if qr.1 != nil { return [Message]() }
-    return qr.0.map { self.messageFromRow($0) }.filter { $0 != nil}.map { $0! }
+    if qr.error != nil { return [Message]() }
+    return qr.result.map { self.messageFromRow($0) }.filter { $0 != nil}.map { $0! }
   }
   
   class func messageFromRow(row: Row) -> Message? {
@@ -31,13 +67,14 @@ class SQLiteGateway: NSObject, DataSource {
     let t = row[textKey()]?.asString()
     let time = row[timeKey()]?.asInt()
     let u = row[uniqueIDKey()]?.asString()
-    let a = row[attachmentIDKey()]?.asString()
+    let a = row[attachmentIDKey()]?.asInt()
     switch (tm,t,time, u) {
     case let (.Some(tm), .Some(t), .Some(time), .Some(u)):
       let toMe = tm != "to"
       let timeInterval = NSTimeInterval(time)
       let d = NSDate(timeIntervalSince1970: timeInterval)
-      return Message(toMe: toMe, text: t, time: d, uniqueID: u, attachmentID: a)
+      let aID = a == 0 ? nil : a
+      return Message(toMe: toMe, text: t, time: d, uniqueID: u, attachmentID: aID)
     default:
       return nil
     }
@@ -49,8 +86,8 @@ class SQLiteGateway: NSObject, DataSource {
   
   class func getAttachments() -> [Attachment] {
     let qr = SD.executeQuery("SELECT * FROM attachments")
-    if qr.1 != nil { return [Attachment]() }
-    return qr.0.map { self.getAttachmentFromRow($0) }.filter { $0 != nil }.map { $0! }
+    if qr.error != nil { return [Attachment]() }
+    return qr.result.map { self.getAttachmentFromRow($0) }.filter { $0 != nil }.map { $0! }
   }
   
   class func getAttachmentFromRow(row: Row) -> Attachment? {
@@ -70,8 +107,8 @@ class SQLiteGateway: NSObject, DataSource {
   private class func contactIDKey() -> String { return "ContactID" }
   class func getContacts() -> [Contact] {
     let qr = SD.executeQuery("SELECT * FROM contacts")
-    if qr.1 != nil { return [Contact]() }
-    return qr.0.map({ self.contactFromRow($0) }).filter({ $0 != nil }).map({ $0! })
+    if qr.error != nil { return [Contact]() }
+    return qr.result.map({ self.contactFromRow($0) }).filter({ $0 != nil }).map({ $0! })
   }
   
   class func contactFromRow(row: SwiftData.SDRow) -> Contact? {

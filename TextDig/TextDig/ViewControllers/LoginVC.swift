@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginVC: TDVC {
+class LoginVC: TDVC, UIViewControllerTransitioningDelegate {
   
   override init() {
     super.init(nibName: "LoginVC", bundle: nil)
@@ -19,7 +19,6 @@ class LoginVC: TDVC {
   }
   
   // MARK: IBActions
-  
   @IBAction func signInTapped(sender: AnyObject) {
     dao.user.beginLogin = { self.activityIndicator.startAnimating() }
     dao.user.endLogin = { successful in
@@ -29,6 +28,18 @@ class LoginVC: TDVC {
       }
     }
     dao.user.login()
+  }
+  
+  func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    let transitioning = StandardModalTransition()
+    transitioning.presenting = true
+    return transitioning
+  }
+  
+  func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    let transitioning = StandardModalTransition()
+    transitioning.presenting = false
+    return transitioning
   }
   
 }

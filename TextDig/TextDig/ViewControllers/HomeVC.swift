@@ -18,7 +18,7 @@ class HomeVC: TDVC {
       collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "homeCell")
       let layout = collectionView.collectionViewLayout as UICollectionViewFlowLayout
       layout.sectionInset = UIEdgeInsetsZero
-      layout.itemSize = CGSize(width: collectionView.bounds.size.width, height: 200)
+      layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 200)
       layout.minimumInteritemSpacing = 0
       layout.minimumLineSpacing = 0
       collectionView.delegate = self.cvDelegate
@@ -38,6 +38,12 @@ class HomeVC: TDVC {
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+//    if let contactID = SQLiteGateway.getContactIDForName("ki") {
+//      let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
+//      let messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
+//      let msgWithAttachments = messages.filter { $0.attachmentID != nil }
+//      println("\(msgWithAttachments)")
+//    }
   }
   
   // MARK: IBActions
@@ -45,21 +51,6 @@ class HomeVC: TDVC {
     logout()
   }
 }
-
-
-
-
-
-
-////    let messages = SQLiteGateway.getMessages(limit: )
-////    for message in messages {
-////      println("\(message)")
-////    }
-//    let attachments = SQLiteGateway.getAttachments()
-////    for a in attachments {
-////      pri1000ntln("\(a)")
-////    }
-//    println("done")
 
 
 

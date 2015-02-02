@@ -35,6 +35,7 @@ class TDVC: UIViewController {
   func showLoginVC() {
     if let vc = self as? LoginVC { return }
     let loginVC = LoginVC()
+    loginVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
     self.presentViewController(loginVC, animated: true, completion: nil)
   }
   
@@ -56,7 +57,7 @@ class TDVC: UIViewController {
     user.endLogout = { success in
       self.activityIndicator.stop()
       if !success {
-        println("failed to logout")
+        //
       } else {
         self.showLoginVC()
       }

@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umT-vc-Wsq">
+                <visualEffectView opaque="NO" alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umT-vc-Wsq">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nXw-D0-R7n">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
