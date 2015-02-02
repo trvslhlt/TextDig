@@ -16,6 +16,7 @@ class User: Model {
   var beginLogout: (() -> ())?
   var endLogout: ((success: Bool) -> ())?
   var email: String { get { return loginDelegate.getUserEmail() } }
+  var messages: [Message] = [Message]()
   
   func isLoggedIn() -> Bool {
     self.beginLogin?()

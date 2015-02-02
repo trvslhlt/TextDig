@@ -10,7 +10,9 @@ import UIKit
 
 class ChatCell: UICollectionViewCell {
   
-  class func reuseID() -> String { return "chatCell" }
+  @IBOutlet weak var textView: UITextView!
+  
+  class func cellReuseID() -> String { return "chatCell" }
   
   override func awakeFromNib() {
     super.awakeFromNib()

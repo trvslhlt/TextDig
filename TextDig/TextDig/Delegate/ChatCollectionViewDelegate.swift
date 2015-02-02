@@ -11,13 +11,14 @@ import UIKit
 class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
   
   let collectionView: UICollectionView
+  var messages = [Message]()
   
   init(collectionView: UICollectionView) {
     self.collectionView = collectionView
     super.init()
     self.collectionView.delegate = self
     self.collectionView.dataSource = self
-    self.collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    self.collectionView.registerNib(UINib(nibName: "ChatCell", bundle: nil), forCellWithReuseIdentifier: ChatCell.cellReuseID())
   }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -25,11 +26,14 @@ class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, 
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 20
+    return messages.count
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as UICollectionViewCell
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ChatCell.cellReuseID(), forIndexPath: indexPath) as ChatCell
+    
+    cell.textView.text = messages[indexPath.row].text
+    
     return cell
   }
   

@@ -29,6 +29,7 @@ class HomeVC: TDVC {
       }
     }
   }
+  @IBOutlet weak var messageCountLabel: UILabel!
   
   override init() {
     self.cvDelegate = HomeCVDelegate(data: self.data)
@@ -38,12 +39,20 @@ class HomeVC: TDVC {
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if let contactID = SQLiteGateway.getContactIDForName("ki") {
-//      let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
-//      let messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
-//      let msgWithAttachments = messages.filter { $0.attachmentID != nil }
-//      println("\(msgWithAttachments)")
-//    }
+    
+    self.messageCountLabel.text = "creating ki messages"
+    activityIndicator.start()
+    var backgroundQueue = NSOperationQueue()
+    backgroundQueue.addOperationWithBlock(){
+      if let contactID = SQLiteGateway.getContactIDForName("ki") {
+        let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
+        self.user.messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
+      }
+      NSOperationQueue.mainQueue().addOperationWithBlock(){
+        self.activityIndicator.stop()
+        self.messageCountLabel.text = "\(self.user.messages.count)"
+      }
+    }
   }
   
   // MARK: IBActions

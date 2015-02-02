@@ -20,6 +20,9 @@ class SQLiteGateway: NSObject, DataSource {
 
   
   
+  
+  
+  
   class func getContactIDForName(name: String) -> Int? {
     let qr = SD.executeQuery("SELECT ContactID from \(Table.Contacts.rawValue) WHERE First = ?", withArgs: [name])
     if qr.error != nil { return nil }
