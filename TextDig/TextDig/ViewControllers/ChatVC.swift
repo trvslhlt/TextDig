@@ -10,13 +10,16 @@ import UIKit
 
 class ChatVC: TDVC {
   
-  let maxNumberOfMessages = 50
-  let minNumberOfMessages = 5
+  let maxNumberOfMessages = 30
+  let minNumberOfMessages = 1
   
-  var collectionViewDelegate: ChatCollectionViewDelegate?
+  let collectionViewDelegate = ChatCollectionViewDelegate()
+
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet {
-      self.collectionViewDelegate = ChatCollectionViewDelegate(collectionView: self.collectionView)
+      self.collectionView.delegate = self.collectionViewDelegate
+      self.collectionView.dataSource = self.collectionViewDelegate
+      self.collectionView.registerNib(UINib(nibName: "ChatCell", bundle: nil), forCellWithReuseIdentifier: ChatCell.cellReuseID())
     }
   }
   
@@ -46,21 +49,20 @@ class ChatVC: TDVC {
     refreshMessages()
   }
   
-  
   // MARK: Utility
-  
   func refreshMessages() {
     let newMessages = getRandomArrayFromMessages(user.messages)
-    collectionViewDelegate?.messages = newMessages
+    collectionViewDelegate.messages = newMessages
     collectionView.reloadData()
-    collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
   }
   
   func getRandomNumberBetweenMin(min: Int, andMax max: Int) -> Int{
     let minimum = min >= 0 ? min : 0
     let maximum = max > min ? max : minimum + 1
     let diff = maximum - minimum
-    return minimum + (random() % diff)
+    let r = Int(arc4random_uniform(UInt32(diff)))
+    return minimum + r
   }
   
   func getRandomStartingIndexWithLimit(limit: Int) -> Int {

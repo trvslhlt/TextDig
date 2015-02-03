@@ -28,6 +28,9 @@
 		884CFC2C1A7F14F1001F0518 /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884CFC2A1A7F14F1001F0518 /* ChatVC.xib */; };
 		884CFC2F1A7F1513001F0518 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC2D1A7F1513001F0518 /* ChatCell.swift */; };
 		884CFC301A7F1513001F0518 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 884CFC2E1A7F1513001F0518 /* ChatCell.xib */; };
+		884CFC321A7F4DBC001F0518 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC311A7F4DBC001F0518 /* Global.swift */; };
+		884CFC9E1A808C17001F0518 /* MessageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC9D1A808C17001F0518 /* MessageGenerator.swift */; };
+		884CFCA01A809233001F0518 /* ChatBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884CFC9F1A809233001F0518 /* ChatBubble.swift */; };
 		8860E00A1A71CAA400270A91 /* clean.db in Resources */ = {isa = PBXBuildFile; fileRef = 8860E0091A71CAA400270A91 /* clean.db */; };
 		8860E00C1A71CB1C00270A91 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */; };
 		888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888A43BC1A75A5F5003B3CBE /* Message.swift */; };
@@ -112,6 +115,9 @@
 		884CFC2A1A7F14F1001F0518 /* ChatVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatVC.xib; path = ViewControllers/ChatVC.xib; sourceTree = "<group>"; };
 		884CFC2D1A7F1513001F0518 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatCell.swift; path = Views/ChatCell.swift; sourceTree = "<group>"; };
 		884CFC2E1A7F1513001F0518 /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatCell.xib; path = Views/ChatCell.xib; sourceTree = "<group>"; };
+		884CFC311A7F4DBC001F0518 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		884CFC9D1A808C17001F0518 /* MessageGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageGenerator.swift; path = Utilities/MessageGenerator.swift; sourceTree = "<group>"; };
+		884CFC9F1A809233001F0518 /* ChatBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatBubble.swift; path = Views/ChatBubble.swift; sourceTree = "<group>"; };
 		8860E0091A71CAA400270A91 /* clean.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = clean.db; sourceTree = "<group>"; };
 		8860E00B1A71CB1C00270A91 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TextDig-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -245,9 +251,9 @@
 		8860E0051A71C8E700270A91 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				884CFC201A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift */,
 				88414EA01A74B06C00E233D8 /* SQLiteGateway.swift */,
 				88414E911A74A0D000E233D8 /* TDDocumentManager.swift */,
+				884CFC9D1A808C17001F0518 /* MessageGenerator.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				88D92C501A6C69DE00B96D4C /* LaunchScreen.xib */,
 				88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */,
 				889868A31A78A2AD0026D952 /* Constants.swift */,
+				884CFC311A7F4DBC001F0518 /* Global.swift */,
 				8860E00D1A71CB8300270A91 /* TextDig-Bridging-Header.h */,
 				88D92C4E1A6C69DE00B96D4C /* Images.xcassets */,
 				88FF848F1A6CBBAD000701EA /* Delegates */,
@@ -389,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				88FF84901A6CBBDF000701EA /* ChatCollectionViewDelegate.swift */,
+				884CFC201A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift */,
 				884CFC241A7EE1F0001F0518 /* HomeCVDelegate.swift */,
 			);
 			name = Delegates;
@@ -399,6 +407,7 @@
 			children = (
 				88FF849B1A6CC361000701EA /* Cells */,
 				884CFC221A7ED7AA001F0518 /* TDActivityIndicatorView.swift */,
+				884CFC9F1A809233001F0518 /* ChatBubble.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -640,15 +649,18 @@
 				88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */,
 				888A43BF1A75B7C7003B3CBE /* Attachment.swift in Sources */,
 				884CFC231A7ED7AA001F0518 /* TDActivityIndicatorView.swift in Sources */,
+				884CFC9E1A808C17001F0518 /* MessageGenerator.swift in Sources */,
 				88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */,
 				88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */,
 				88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */,
 				88414E9B1A74ACE700E233D8 /* TDVC.swift in Sources */,
 				884CFC1C1A7EB746001F0518 /* LoginVC.swift in Sources */,
 				88FF84C71A6CD81A000701EA /* UIKitExtensions.swift in Sources */,
+				884CFCA01A809233001F0518 /* ChatBubble.swift in Sources */,
 				88FF84C51A6CCF4E000701EA /* CoreGraphicsExtensions.swift in Sources */,
 				884CFC281A7EEFBC001F0518 /* StandardModalTransition.swift in Sources */,
 				884CFC2F1A7F1513001F0518 /* ChatCell.swift in Sources */,
+				884CFC321A7F4DBC001F0518 /* Global.swift in Sources */,
 				888A43BD1A75A5F5003B3CBE /* Message.swift in Sources */,
 				88414EA11A74B06C00E233D8 /* SQLiteGateway.swift in Sources */,
 				884CFC211A7EB8C7001F0518 /* GooglePlusSignInDelegate.swift in Sources */,

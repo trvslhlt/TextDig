@@ -10,16 +10,7 @@ import UIKit
 
 class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
   
-  let collectionView: UICollectionView
   var messages = [Message]()
-  
-  init(collectionView: UICollectionView) {
-    self.collectionView = collectionView
-    super.init()
-    self.collectionView.delegate = self
-    self.collectionView.dataSource = self
-    self.collectionView.registerNib(UINib(nibName: "ChatCell", bundle: nil), forCellWithReuseIdentifier: ChatCell.cellReuseID())
-  }
   
   func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
     return 1
@@ -32,15 +23,36 @@ class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, 
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ChatCell.cellReuseID(), forIndexPath: indexPath) as ChatCell
     
-    cell.textView.text = messages[indexPath.row].text
+    let message = messages[indexPath.row]
+    cell.textView.text = message.text
+    cell.textView.textAlignment = message.toMe ? NSTextAlignment.Right : NSTextAlignment.Left
     
     return cell
   }
   
   // MARK: Layout
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    let screenWidth = UIScreen.mainScreen().bounds.size.width
-    return CGSize(width: screenWidth, height: 100)
+    let text = messages[indexPath.row].text
+    let t = text.isEmpty ? " " : text
+    return cellSizeWithText(t, font: ChatCell.cellFont(), containerWidth: collectionView.bounds.size.width)
   }
   
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 0
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 0
+  }
+  
+  func cellSizeWithText(text: String, font: UIFont, containerWidth: CGFloat) -> CGSize {
+    let tv = UITextView()
+    tv.text = text
+    tv.font = font
+    let tvMaxWidth = ChatCell.maxTextViewWidth(containerWidth)
+    let tvIdealSize = tv.sizeThatFits(CGSize(width: tvMaxWidth, height: CGFloat.max))
+    let tvSize =  CGSize(width: tvMaxWidth, height: tvIdealSize.height)
+    return CGSize(width: containerWidth, height: tvSize.height)
+  }
+
 }
