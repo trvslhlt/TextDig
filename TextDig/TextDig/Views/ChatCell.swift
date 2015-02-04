@@ -13,7 +13,7 @@ class ChatCell: UICollectionViewCell {
   @IBOutlet weak var textView: UITextView! {
     didSet {
       textView.textContainer.lineFragmentPadding = 0
-      textView.textContainerInset = UIEdgeInsetsZero
+      textView.textContainerInset = ChatCell.textInsetsFromTextView()
       textView.font = ChatCell.cellFont()
     }
   }
@@ -22,6 +22,10 @@ class ChatCell: UICollectionViewCell {
   class func cellFont() -> UIFont { return UIFont.systemFontOfSize(14) }
   class func bubbleInsetFromCell() -> CGFloat { return CGFloat.tdStandardSpacing() }
   class func textInsetFromBubble() -> CGFloat { return 0 }
+  class func textInsetsFromTextView() -> UIEdgeInsets {
+    let textInset = CGFloat.tdStandardSpacing()
+    return UIEdgeInsets(top: textInset, left: textInset, bottom: textInset, right: textInset)
+  }
   class func maxTextViewWidth(containerWidth: CGFloat) -> CGFloat {
     return containerWidth - (2 * bubbleInsetFromCell()) - (2 * textInsetFromBubble())
   }

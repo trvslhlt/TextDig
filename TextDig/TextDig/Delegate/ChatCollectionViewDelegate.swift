@@ -49,10 +49,13 @@ class ChatCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout, 
     let tv = UITextView()
     tv.text = text
     tv.font = font
+    tv.textContainerInset = ChatCell.textInsetsFromTextView()
     let tvMaxWidth = ChatCell.maxTextViewWidth(containerWidth)
     let tvIdealSize = tv.sizeThatFits(CGSize(width: tvMaxWidth, height: CGFloat.max))
     let tvSize =  CGSize(width: tvMaxWidth, height: tvIdealSize.height)
-    return CGSize(width: containerWidth, height: tvSize.height)
+    let cellWidth = tvSize.width + (2 * ChatCell.textInsetFromBubble()) + (2 * ChatCell.bubbleInsetFromCell())
+    let cellHeight = tvSize.height + (2 * ChatCell.textInsetFromBubble()) + (2 * ChatCell.bubbleInsetFromCell())
+    return CGSize(width: cellWidth, height: cellHeight)
   }
 
 }
