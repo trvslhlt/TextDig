@@ -10,8 +10,12 @@ import UIKit
 
 class LoginVC: TDVC, UIViewControllerTransitioningDelegate {
   
-  override init() {
+  required init() {
     super.init(nibName: "LoginVC", bundle: nil)
+  }
+
+  required init(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {

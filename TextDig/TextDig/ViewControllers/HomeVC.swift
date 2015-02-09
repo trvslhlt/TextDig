@@ -10,8 +10,8 @@ import UIKit
 
 class HomeVC: TDVC {
   
-  typealias Data = UIViewController.Type
-  let data: [Data] = [ChatVC.self, ContactsVC.self]
+  typealias Data = TDVC.Type
+  let data: [Data] = [ChatVC.self, ContactsVC.self, HaikuVC.self]
   let cvDelegate: HomeCVDelegate
   @IBOutlet weak var collectionView: UICollectionView! {
     didSet{
@@ -31,40 +31,21 @@ class HomeVC: TDVC {
   }
   @IBOutlet weak var messageCountLabel: UILabel!
   
-  override init() {
+  required init() {
     self.cvDelegate = HomeCVDelegate(data: self.data)
     super.init(nibName: "HomeVC", bundle: nil)
+  }
+
+  required init(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
   }
   
   // MARK: Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-//    if dao.contacts.count == 0 {
-      dao.contacts = SQLiteGateway.getContacts()
-//    } else {
-      println("success")
-//    }
-    
-    if user.messages.count == 0 {
-      self.messageCountLabel.text = "creating ki messages"
-      activityIndicator.start()
-      var backgroundQueue = NSOperationQueue()
-      backgroundQueue.addOperationWithBlock(){
-        if let contactID = SQLiteGateway.getContactIDForName("ki") {
-          let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
-          self.user.messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
-        }
-        NSOperationQueue.mainQueue().addOperationWithBlock(){
-          self.activityIndicator.stop()
-          self.messageCountLabel.text = "\(self.user.messages.count)"
-        }
-      }
-    } else {
+    dao.getKiMessagesWithCompletion { messages in
       self.messageCountLabel.text = "\(self.user.messages.count)"
     }
-    
-
   }
   
   // MARK: IBActions

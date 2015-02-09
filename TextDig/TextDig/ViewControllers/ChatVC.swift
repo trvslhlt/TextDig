@@ -23,8 +23,12 @@ class ChatVC: TDVC {
     }
   }
   
-  override init() {
+  required init() {
     super.init(nibName: "ChatVC", bundle: nil)
+  }
+
+  required init(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {
@@ -57,13 +61,13 @@ class ChatVC: TDVC {
     collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
   }
   
-  func getRandomNumberBetweenMin(min: Int, andMax max: Int) -> Int{
-    let minimum = min >= 0 ? min : 0
-    let maximum = max > min ? max : minimum + 1
-    let diff = maximum - minimum
-    let r = Int(arc4random_uniform(UInt32(diff)))
-    return minimum + r
-  }
+//  func getRandomNumberBetweenMin(min: Int, andMax max: Int) -> Int{
+//    let minimum = min >= 0 ? min : 0
+//    let maximum = max > min ? max : minimum + 1
+//    let diff = maximum - minimum
+//    let r = Int(arc4random_uniform(UInt32(diff)))
+//    return minimum + r
+//  }
   
   func getRandomStartingIndexWithLimit(limit: Int) -> Int {
     return random() % limit
@@ -72,7 +76,7 @@ class ChatVC: TDVC {
   func getRandomArrayFromMessages(messages: [Message]) -> [Message] {
     let limit = messages.count - 1
     let startingIndex = getRandomStartingIndexWithLimit(limit)
-    let ei = startingIndex + getRandomNumberBetweenMin(self.minNumberOfMessages, andMax: self.maxNumberOfMessages)
+    let ei = startingIndex + randomNumberBetweenMin(self.minNumberOfMessages, andMax: self.maxNumberOfMessages)
     let endingIndex = ei >= limit ? limit : ei
     return Array(messages[startingIndex...endingIndex])
   }

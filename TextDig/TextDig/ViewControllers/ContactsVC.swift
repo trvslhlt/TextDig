@@ -15,8 +15,12 @@ class ContactsVC: TDVC, UITableViewDelegate, UITableViewDataSource {
   let cellReuseID = "cell"
   var contacts: [Contact] { get{ return self.dao.contacts } }
   
-  override init() {
+  required init() {
     super.init(nibName: "ContactsVC", bundle: nil)
+  }
+
+  required init(coder aDecoder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
   }
   
   override func viewDidLoad() {

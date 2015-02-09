@@ -14,8 +14,9 @@ protocol DataSource {
 
 class DAO: Model, NSCoding {
   
-  var contacts: [Contact] { didSet { save() } }
-  var user: User { didSet { save() } }
+  var contacts: [Contact] = [Contact]() { didSet { save() } }
+  var user: User = User() { didSet { save() } }
+  let modelQueue = NSOperationQueue()
   
   private class var selfKey: String { get { return "dao" } }
   private class var contactsKey: String { get { return "contacts" } }
@@ -36,21 +37,19 @@ class DAO: Model, NSCoding {
   }
   
   override init() {
-    self.contacts = DAO.getContacts()
-    self.user = User()
     super.init()
+    self.contacts = self.getContacts()
   }
   
   required init(coder aDecoder: NSCoder) {
+    super.init()
     if let c = aDecoder.decodeObjectForKey(DAO.contactsKey) as? [Contact] {
       self.contacts = c
     } else {
-      self.contacts = DAO.getContacts()
+      self.contacts = self.getContacts()
     }
     if let u = aDecoder.decodeObjectForKey(DAO.userKey) as? User {
       self.user = u
-    } else {
-      self.user = User()
     }
   }
   
@@ -66,68 +65,36 @@ class DAO: Model, NSCoding {
         return dao
       }
     }
-    
-    
-//    if let data = NSUserDefaults.standardUserDefaults().objectForKey(contactsKey) as? NSData {
-//      if let d = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? DAO {
-//        return d
-//      }
-//    }
     return DAO()
   }
   
-//  + (id)readFromArchive {
-//  NSString *archivePath = [[self class] filePath];
-//  if (![[NSFileManager defaultManager] fileExistsAtPath:archivePath]) { return nil; }
-//  return [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
-//  }
-  
   func save() {
     let data = NSKeyedArchiver.archivedDataWithRootObject(self)
-//    NSUserDefaults.standardUserDefaults().setObject(data, forKey: DAO.userKey)
-//    NSUserDefaults.standardUserDefaults().synchronize()
     NSKeyedArchiver.archiveRootObject(self, toFile: DAO.filepath)
   }
-  
-//  - (void)persist {
-//  UIApplication *application = [UIApplication sharedApplication];
-//  __block UIBackgroundTaskIdentifier bgTask;
-//  bgTask = [application beginBackgroundTaskWithExpirationHandler:^{
-//  [application endBackgroundTask:bgTask];
-//  bgTask = UIBackgroundTaskInvalid;
-//  }];
-//  
-//  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//  id copy = self.copy;
-//  [NSKeyedArchiver archiveRootObject:copy toFile:[[copy class] filePath]];
-//  
-//  [application endBackgroundTask:bgTask];
-//  bgTask = UIBackgroundTaskInvalid;
-//  });
-//  }
   
   func clear() {
     if NSFileManager.defaultManager().fileExistsAtPath(DAO.filepath) {
       NSFileManager.defaultManager().removeItemAtPath(DAO.filepath, error: nil)
     }
-//    NSUserDefaults.standardUserDefaults().removeObjectForKey(self.animalsKey)
-//    NSUserDefaults.standardUserDefaults().synchronize()
-    
-    
   }
   
-//  + (id)readFromArchive {
-//  NSString *archivePath = [[self class] filePath];
-//  if (![[NSFileManager defaultManager] fileExistsAtPath:archivePath]) { return nil; }
-//  return [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
-//  }
-//
-//  + (void)resetArchive {
-//  [[NSFileManager defaultManager] removeItemAtPath:[[self class] filePath] error:nil];
-//  }
- // MARK: Models
-  class func getContacts() -> [Contact] { return SQLiteGateway.getContacts() }
-
+  func getContacts() -> [Contact] { return SQLiteGateway.getContacts() }
+  func getKiMessagesWithCompletion(completion: ([Message] -> ())) {
+    modelQueue.addOperationWithBlock(){
+      if let contactID = SQLiteGateway.getContactIDForName("ki") {
+        let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
+        let messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
+        NSOperationQueue.mainQueue().addOperationWithBlock(){
+          completion(messages)
+        }
+      }
+    }
+  }
+  
+  func kiMessagesUpdated() {
+    
+  }
 }
 
 
@@ -146,13 +113,13 @@ class DAO: Model, NSCoding {
 //    [[NSNotificationCenter defaultCenter] removeObserver:self];
 //    }
 
-//        
+//
 //        + (id)readFromArchive {
 //          NSString *archivePath = [[self class] filePath];
 //          if (![[NSFileManager defaultManager] fileExistsAtPath:archivePath]) { return nil; }
 //          return [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
 //          }
-//          
+//
 //          + (void)resetArchive {
 //            [[NSFileManager defaultManager] removeItemAtPath:[[self class] filePath] error:nil];
 //          }

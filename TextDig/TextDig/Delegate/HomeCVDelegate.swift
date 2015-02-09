@@ -10,7 +10,7 @@ import UIKit
 
 class HomeCVDelegate: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   
-  typealias Data = UIViewController.Type
+  typealias Data = TDVC.Type
   let data: [Data]
   let cellReuseID = "homeCell"
   var selectedItem: ((Data) -> ())?

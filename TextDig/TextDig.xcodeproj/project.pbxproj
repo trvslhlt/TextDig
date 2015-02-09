@@ -50,6 +50,9 @@
 		8898689B1A789ECB0026D952 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 889868991A789ECB0026D952 /* GooglePlus.framework */; };
 		8898689E1A789F210026D952 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8898689D1A789F210026D952 /* GooglePlus.bundle */; };
 		889868A41A78A2AD0026D952 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889868A31A78A2AD0026D952 /* Constants.swift */; };
+		88A9EA5B1A886E1D00ABB110 /* HaikuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9EA591A886E1D00ABB110 /* HaikuVC.swift */; };
+		88A9EA5C1A886E1D00ABB110 /* HaikuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88A9EA5A1A886E1D00ABB110 /* HaikuVC.xib */; };
+		88A9EA5E1A8870C400ABB110 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A9EA5D1A8870C400ABB110 /* General.swift */; };
 		88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */; };
 		88D92C4F1A6C69DE00B96D4C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C4E1A6C69DE00B96D4C /* Images.xcassets */; };
 		88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D92C501A6C69DE00B96D4C /* LaunchScreen.xib */; };
@@ -138,6 +141,9 @@
 		889868991A789ECB0026D952 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
 		8898689D1A789F210026D952 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
 		889868A31A78A2AD0026D952 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		88A9EA591A886E1D00ABB110 /* HaikuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HaikuVC.swift; path = ViewControllers/HaikuVC.swift; sourceTree = "<group>"; };
+		88A9EA5A1A886E1D00ABB110 /* HaikuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HaikuVC.xib; path = ViewControllers/HaikuVC.xib; sourceTree = "<group>"; };
+		88A9EA5D1A8870C400ABB110 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = General.swift; path = Extensions/General.swift; sourceTree = "<group>"; };
 		88D92C471A6C69DE00B96D4C /* TextDig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextDig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D92C4B1A6C69DE00B96D4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88D92C4C1A6C69DE00B96D4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +378,8 @@
 				884CFC2A1A7F14F1001F0518 /* ChatVC.xib */,
 				88414E951A74ACB900E233D8 /* ContactsVC.swift */,
 				88414E961A74ACB900E233D8 /* ContactsVC.xib */,
+				88A9EA591A886E1D00ABB110 /* HaikuVC.swift */,
+				88A9EA5A1A886E1D00ABB110 /* HaikuVC.xib */,
 				88FF848B1A6CB499000701EA /* HomeVC.swift */,
 				88FF848C1A6CB499000701EA /* HomeVC.xib */,
 				884CFC1A1A7EB746001F0518 /* LoginVC.swift */,
@@ -461,6 +469,7 @@
 			children = (
 				88FF84C41A6CCF4E000701EA /* CoreGraphicsExtensions.swift */,
 				88FF84C61A6CD81A000701EA /* UIKitExtensions.swift */,
+				88A9EA5D1A8870C400ABB110 /* General.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -552,6 +561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				884CFC1D1A7EB746001F0518 /* LoginVC.xib in Resources */,
+				88A9EA5C1A886E1D00ABB110 /* HaikuVC.xib in Resources */,
 				88D92C521A6C69DE00B96D4C /* LaunchScreen.xib in Resources */,
 				8860E00A1A71CAA400270A91 /* clean.db in Resources */,
 				8898689E1A789F210026D952 /* GooglePlus.bundle in Resources */,
@@ -645,12 +655,14 @@
 				889868A41A78A2AD0026D952 /* Constants.swift in Sources */,
 				88414E9D1A74AE8900E233D8 /* DAO.swift in Sources */,
 				88414E941A74A7FA00E233D8 /* Contact.swift in Sources */,
+				88A9EA5E1A8870C400ABB110 /* General.swift in Sources */,
 				88FF848D1A6CB499000701EA /* HomeVC.swift in Sources */,
 				88FF84911A6CBBDF000701EA /* ChatCollectionViewDelegate.swift in Sources */,
 				888A43BF1A75B7C7003B3CBE /* Attachment.swift in Sources */,
 				884CFC231A7ED7AA001F0518 /* TDActivityIndicatorView.swift in Sources */,
 				884CFC9E1A808C17001F0518 /* MessageGenerator.swift in Sources */,
 				88414E971A74ACB900E233D8 /* ContactsVC.swift in Sources */,
+				88A9EA5B1A886E1D00ABB110 /* HaikuVC.swift in Sources */,
 				88414E921A74A0D000E233D8 /* TDDocumentManager.swift in Sources */,
 				88D92C4D1A6C69DE00B96D4C /* AppDelegate.swift in Sources */,
 				88414E9B1A74ACE700E233D8 /* TDVC.swift in Sources */,
