@@ -8,15 +8,35 @@
 
 import UIKit
 
-class User: Model {
+class User: Model, NSCoding {
   
+  class var messagesKey: String { return "messages" }
+
   var loginDelegate: GooglePlusSignInDelegate { get { return GooglePlusSignInDelegate.sharedInstance } }
   var beginLogin: (() -> ())?
   var endLogin: ((success: Bool) -> ())?
   var beginLogout: (() -> ())?
   var endLogout: ((success: Bool) -> ())?
   var email: String { get { return loginDelegate.getUserEmail() } }
-  var messages: [Message] = [Message]()
+  var messages: [Message] = [Message]() {
+    didSet {
+      DAO.sharedInstance.save()
+    }
+  }
+  
+  override init() {
+    super.init()
+  }
+  
+  required init(coder aDecoder: NSCoder) {
+    if let m = aDecoder.decodeObjectForKey(User.messagesKey) as? [Message] {
+      self.messages = m
+    }
+  }
+  
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(self.messages, forKey: User.messagesKey)
+  }
   
   func isLoggedIn() -> Bool {
     self.beginLogin?()

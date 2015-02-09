@@ -40,19 +40,31 @@ class HomeVC: TDVC {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.messageCountLabel.text = "creating ki messages"
-    activityIndicator.start()
-    var backgroundQueue = NSOperationQueue()
-    backgroundQueue.addOperationWithBlock(){
-      if let contactID = SQLiteGateway.getContactIDForName("ki") {
-        let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
-        self.user.messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
+//    if dao.contacts.count == 0 {
+      dao.contacts = SQLiteGateway.getContacts()
+//    } else {
+      println("success")
+//    }
+    
+    if user.messages.count == 0 {
+      self.messageCountLabel.text = "creating ki messages"
+      activityIndicator.start()
+      var backgroundQueue = NSOperationQueue()
+      backgroundQueue.addOperationWithBlock(){
+        if let contactID = SQLiteGateway.getContactIDForName("ki") {
+          let uniqueIDs = SQLiteGateway.getUniqueIDsForContactID(contactID)
+          self.user.messages = uniqueIDs.map { SQLiteGateway.getMessagesForUniqueID($0) }.reduce([Message]()) { $0 + $1 }
+        }
+        NSOperationQueue.mainQueue().addOperationWithBlock(){
+          self.activityIndicator.stop()
+          self.messageCountLabel.text = "\(self.user.messages.count)"
+        }
       }
-      NSOperationQueue.mainQueue().addOperationWithBlock(){
-        self.activityIndicator.stop()
-        self.messageCountLabel.text = "\(self.user.messages.count)"
-      }
+    } else {
+      self.messageCountLabel.text = "\(self.user.messages.count)"
     }
+    
+
   }
   
   // MARK: IBActions
